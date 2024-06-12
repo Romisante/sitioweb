@@ -27,7 +27,6 @@ h2 {
 .boton{
     color: #5CAA6D
 }
-    
 
 header{
     background-image: url(../imagenes/hmtl_portada.png);
@@ -258,8 +257,25 @@ footer{
   li{
     list-style: none;
 }
-  
 
+.video-container{
+  position: relative;
+  padding-bottom: 100%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #021E44;
+  margin-top: 1em;
+}
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+  
   /*pagina de historia*/
 
 .historia-container {
@@ -328,25 +344,27 @@ footer{
     margin-left: 1em;
     margin-right: 1em;
     padding: 1em;
+    background-color: #EEEEEE;
  }
  .team1{
     display: flex;
     margin-left: 1em;
-    margin-left: 1em;
-    padding: 1em;   
+    margin-right: 1em;
+    padding: 1em;  
  }
  .team1 img{
     width: 50%;
     padding: 1em;
+    border-radius:10px;
  }
 
  
 .team2{
     display: flex;
     margin-left: 1em;
-    margin-left: 1em;
+    margin-right: 1em;
     padding: 1em;
-    
+       
 }
 .team2 img{
     width: 50%;
@@ -356,8 +374,9 @@ footer{
 .team3{
     display: flex;
     margin-left: 1em;
-    margin-left: 1em;
+    margin-right: 1em;
     padding: 1em;
+   
 }
 .team3 img{
     width: 50%;
@@ -398,6 +417,7 @@ footer{
     width: 50%;
     border-radius: 10px;
     padding: auto;
+    position: relative;
 }
 .rz2{
     margin-left: 1em;
@@ -410,6 +430,7 @@ footer{
     width: 50%;
     border-radius: 10px;
     padding: auto;
+    position: relative;
 }
 
 .rz3{
@@ -423,9 +444,11 @@ footer{
     width: 50%;
     border-radius: 10px;
     padding: auto;
+    position: relative;
 } 
 .footer-razones{
     background-color: #021E44;
+    padding: auto;
 }
 .redes-sociales3{
     width: 50%;
@@ -434,7 +457,9 @@ footer{
     text-align: center;
     margin-inline:auto; 
     padding-top: 1em;
-}   
+}  
+
+
   /*Formulario registrate invierte*/
   .emcabezado-invierte{
     background-image: url(../imagenes/html_somalia.jpg);
@@ -481,8 +506,100 @@ footer{
             background-color:#021E44;
         }
 
-@media screen and (min-width:768px) {
 
+        /* selector múltiple */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p { /* redefine los márgenes inferiores para que midan el tamaño de la tipografía */
+  margin-block-end: 1em;
+}
+/* TODAS las listas */
+ul,
+ol {
+  list-style: none; /* elimina bullets, números etc. */
+}
+
+/* TODAS las imágenes */
+img {
+    /* para que NO midan más que la etiqueta que las contiene */
+    max-width: 100%;
+    /* opcional, evita deformaciones en navegadores antiguos */
+    height: auto;
+  }
+
+  /* selector de clase:
+   grupo de elementos con características comunes...
+   esta clase "contenedora" centra contenidos
+   y limita su ancho
+*/
+.contenedora {
+    width: min(50rem, 100%); /* limita el ancho a 800px */
+    margin-inline: auto; /* centra "la caja" horizontalmente */
+    padding: 1rem; /* relleno igual a un renglón */
+  }
+  
+  /* galeria de imagenes */
+
+.galeria {
+    padding: 0 1em 2em 1em;
+    width: min(75em, 100%);
+    margin-inline: auto;
+  }
+  
+  .las-imagenes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12.5em, 1fr));
+    gap: .25em;
+  }
+  
+  
+  .galeria figure {
+    border-radius: 5px;
+    
+    aspect-ratio: 1; /* para que "figure" sea un cuadrado*/
+    
+    /* para que cada "figure" sea origen de coordenadas de sus elementos contenidos */
+    position: relative;
+    /* para ocultar lo que "excede" sus límites */
+    overflow: hidden;
+  }
+  
+  .galeria img {
+    /* para que la imagen "llene" la etiqueta "img" aun con otras porporciones */
+    object-fit: cover;
+    object-position: center center;
+    width: 100%;
+    height: 100%;
+    display: block; /* para que "desaparezca" el espacio que queda debajo de la imagen */
+  }
+
+    /* Ajustes para móviles */
+@media (max-width: 767px) {
+  .contenedor-fotosf {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      flex-wrap: wrap;
+  }
+
+  .fotofinal img,
+  .fotofinal2 img {
+      width: 50%;
+      margin: 0 auto; /* Para centrar la imagen */
+      display: block;
+      padding-top: 1em;
+      padding-bottom: 1em;
+      border-radius: 10px;
+  }
+}
+  
+
+@media screen and (min-width:768px) {
 
 header {
 height:40rem;
@@ -515,6 +632,123 @@ height: 30rem;
     border-radius: 10px;
     padding: auto;
 }
+.rz2 img {
+  display: flex;
+    width: 40%;
+    border-radius: 10px;
+    padding: auto;
+}
+.rz3 img{
+  display: flex;
+    width: 40%;
+    border-radius: 10px;
+    padding: auto;
+}
 
 }
+.video-container {
+  position: relative;
+  padding-bottom: 100%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #021E44;
+  margin-top: 1em;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media(min-width: 40em) {
+
+  /* el menú deja de ser fijo */
+  header nav {
+    /* para que esté en capa superior pero que no parezca */
+    position: relative;
+  }
+
+  #logo{
+    width: 6em;
+  }
+    
+  /* botón "hamburguesa" oculto */
+  .menu-btn {
+    display: none;
+  }
+
+  /* menu visible */
+  header nav ul,
+  header .menuVisible ul {
+    /* caja flexible para menu horizontal*/
+    display: flex;
+    /* separación entre sus elementos */
+    gap: .25em;
+
+    /* para que esté en capa superior pero que no parezca */
+    position: relative;
+
+    /* elimina desplazamiento */
+    translate: 0;
+
+    /* elimina fondo */
+    background-color: unset;
+  }
+    
+  /* items de lista  que contienen los vínculos del menu */
+  header nav ul li {
+    min-width: 4em; /* que no midan menos de: */
+  }
+
+  /* vínculos del menu principal */
+  header nav ul li a {
+    background-color: hsl(155, 92%, 36%);
+    background-color: 
+    border-radius: .25em ;
+    color: white;
+    font-size: 1rem;
+    width: auto;
+    padding: .25em 1em;
+    text-align: center;
+    display: block; /* para que sean "cajas" */
+    margin-block-end: unset;
+    border-block-end: unset;
+  }
+  
+  /* cuando el cursor se posiciona sobre los vínculos */
+  header nav ul li a:hover {
+    background-color: white;
+    color: hsl(155, 92%, 36%);
+    border-block-end: unset;
+  }
+  
+
+  /* para que "artículo 1" y "artículo 2"
+  queden uno al lado del otro */
+  .textos > .articulos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+  }
+
+}
+
+
+@media screen and (min-width:1000px) {
+
+
+  .historia-header{ 
+  height: 50rem;
+  }
+}
+
+
+
+
+
 
